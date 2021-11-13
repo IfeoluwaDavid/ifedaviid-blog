@@ -1,13 +1,14 @@
 import React from 'react'
 import { Link } from 'gatsby'
-
+import ifedaviidLogo from '../images/ifedaviid-favicon.png'
 import * as styles from './navigation.module.css'
 
 const Navigation = () => (
   <nav role="navigation" className={styles.container} aria-label="Main">
     <Link to="/" className={styles.logoLink}>
-      <span className={styles.logo} />
-      <span className={styles.navigationItem}>Gatsby Starter Contentful</span>
+      <span />
+      <img className={styles.logo} alt="CheckmarkIcon" src={ifedaviidLogo} />
+      <p className={styles.blogTitle}>IFEDAVIID's Blog</p>
     </Link>
     <ul className={styles.navigation}>
       <li className={styles.navigationItem}>

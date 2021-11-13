@@ -15,6 +15,10 @@
   border-bottom: 1.5px solid transparent;
 }
 
+.description {
+  color: var(--greyLight);
+}
+
 .link {
   text-decoration: none;
 }

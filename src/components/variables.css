@@ -1,7 +1,7 @@
 :root {
   /* primitives */
   /* font-family */
-  --font-sans: 'Inter var', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+  --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol';
   --font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
@@ -9,6 +9,8 @@
   --font-serif: 'Times New Roman', Times, serif;
 
   /* palette */
+  --grey: #343434;
+  --greyLight: #bbb;
   --white: #fff;
   --black: #000;
   --black-fade-5: rgba(0, 0, 0, 0.05);
@@ -22,7 +24,7 @@
   --space-lg: 16px;
   --space-xl: 20px;
   --space-2xl: 24px;
-  --space-3xl: 48px;
+  --space-3xl: 50px;
 
   /* line-height */
   --solid: 1;
@@ -53,12 +55,12 @@
   /* tokens */
   /* colors */
   --primary: #4a90e2;
-  --background: var(--white);
+  --background: var(--grey);
   --border: var(--black-fade-5);
 
   /* text */
   /* color */
-  --text-color: var(--black);
+  --text-color: var(--white);
   /* size */
   --text-lead: var(--text-lg);
   --text-prose: var(--text-md);
@@ -67,9 +69,10 @@
   --text-prose-tracking: -0.011em;
 
   /* size */
-  --size-gutter: var(--space-2xl);
-  --size-logo: var(--space-2xl);
+  --size-gutter: var(--space-3xl);
+  --size-logo: var(--space-3xl);
   --size-max-width: 80rem;
+  --size-hero-max-width: 70rem;
 }
 
 @media (min-width: 480px) {
