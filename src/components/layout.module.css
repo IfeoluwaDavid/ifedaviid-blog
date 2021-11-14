@@ -1,0 +1,11 @@
+.main {
+  max-width: var(--size-max-width);
+  margin: 0 auto;
+  padding: var(--size-gutter);
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding: 1rem var(--size-gutter);
+  }
+}

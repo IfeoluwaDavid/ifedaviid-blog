@@ -1,12 +1,10 @@
 .hero {
   align-items: center;
   display: flex;
-  margin: 0 auto;
-  /* width: 80%; */
-  max-width: var(--size-max-width);
+  /* max-width: var(--size-max-width); */
   min-height: 200px;
   /* padding: 0 0 var(--size-gutter); */
-  padding: var(--size-gutter);
+  gap: var(--space-xl);
   border-radius: 1.5rem;
   position: relative;
 }
@@ -16,11 +14,12 @@
     Ensure golden ratio for the hero size while limiting it to some extend to
     the viewport width
   */
+  margin-left: auto;
   height: 61.8vh;
   border-radius: 1.5rem;
   max-height: 25rem;
   /* width: 40rem; */
-  width: 50%;
+  width: 100%;
 }
 
 .category {
@@ -33,12 +32,8 @@
 }
 
 .details {
-  left: 0;
-  max-width: 40rem;
-  width: 85%;
-  padding: var(--space-2xl) var(--size-gutter) 0;
-  position: relative;
-  z-index: 1;
+  max-width: 50%;
+  /* padding: var(--space-2xl) var(--size-gutter) 0; */
   color: #bbb;
 }
 
@@ -46,7 +41,7 @@
   letter-spacing: -0.012em;
   font-size: var(--text-title);
   font-weight: var(--extrabold);
-  line-height: var(--solid);
+  line-height: var(--dense);
   margin: 0 0 var(--space-xl);
 }
 
@@ -56,13 +51,19 @@
   margin: 0;
 }
 
-@media (min-width: 480px) {
+.dateAndTimeToRead {
+  font-size: var(--text-xs);
+  font-style: italic;
+  font-weight: bolder;
+}
+
+/* @media (min-width: 480px) {
   .details {
     padding-top: var(--space-3xl);
   }
-}
+} */
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .hero {
     padding-top: var(--size-gutter);
   }
@@ -71,16 +72,28 @@
     max-width: 44rem;
     padding: var(--space-3xl) var(--size-gutter) 0;
   }
-}
+} */
 
 @media (min-width: 1024px) {
   .image {
-    margin-left: auto;
-    width: 85%;
+    /* width: 50%; */
   }
 
   .details {
     left: var(--size-gutter);
-    padding: var(--space-3xl) var(--size-gutter) 0 0;
+    /* padding: var(--space-3xl) var(--size-gutter) 0 0; */
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    display: block;
+    width: 100%;
+    /* padding: var(--space-2xl) var(--size-gutter); */
+  }
+
+  .details {
+    max-width: 100%;
+    margin-top: 2rem;
   }
 }

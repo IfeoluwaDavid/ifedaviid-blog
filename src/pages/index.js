@@ -8,25 +8,26 @@ const RootIndex = ({ location, data }) => {
   // const posts = get(this, 'props.data.allContentfulBlogPost.nodes')
   // const [author] = get(this, 'props.data.allContentfulPerson.nodes')
   const posts = data.allContentfulBlogPost.nodes
-  const [author] = data.allContentfulPerson.nodes
+  // const [author] = data.allContentfulPerson.nodes
 
   const getFeaturedPost = (posts) => {
     const post = posts.find((post) => post.featuredPost === true)
     return post
   }
 
-  const featuredPost = getFeaturedPost(posts)
-  console.log(featuredPost)
+  // const featuredPost = getFeaturedPost(posts)
+  // console.log(featuredPost)
 
   return (
     <Layout location={location}>
       <FeaturedPostHero
-        post={featuredPost}
+        post={getFeaturedPost(posts)}
         // image={featuredPost.heroImage.gatsbyImageData}
         // title={featuredPost.title}
         // author={featuredPost.author.name}
         // category={featuredPost.category}
       />
+      <h2 style={{ marginTop: '3rem' }}>Recent Posts</h2>
       <ArticlePreview posts={posts} />
     </Layout>
   )
