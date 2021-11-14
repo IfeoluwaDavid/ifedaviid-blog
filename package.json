@@ -51,8 +51,8 @@
   },
   "scripts": {
     "dev": "gatsby clean && gatsby develop",
-    "build": "gatsby build",
-    "serve": "gatsby serve",
+    "build": "gatsby clean && gatsby build",
+    "serve": "gatsby clean && gatsby serve",
     "postinstall": "node ./bin/hello.js",
     "setup": "node ./bin/setup.js",
     "netlify:login": "netlify login",
