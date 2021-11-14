@@ -1,27 +1,36 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import get from 'lodash/get'
-
 import Layout from '../components/layout'
-import Hero from '../components/hero'
+import FeaturedPostHero from '../components/home-hero'
 import ArticlePreview from '../components/article-preview'
 
-class RootIndex extends React.Component {
-  render() {
-    const posts = get(this, 'props.data.allContentfulBlogPost.nodes')
-    const [author] = get(this, 'props.data.allContentfulPerson.nodes')
+const RootIndex = ({ location, data }) => {
+  // const posts = get(this, 'props.data.allContentfulBlogPost.nodes')
+  // const [author] = get(this, 'props.data.allContentfulPerson.nodes')
+  const posts = data.allContentfulBlogPost.nodes
+  // const [author] = data.allContentfulPerson.nodes
 
-    return (
-      <Layout location={this.props.location}>
-        <Hero
-          image={author.heroImage.gatsbyImageData}
-          title={author.name}
-          content={author.shortBio.shortBio}
-        />
-        <ArticlePreview posts={posts} />
-      </Layout>
-    )
+  const getFeaturedPost = (posts) => {
+    const post = posts.find((post) => post.featuredPost === true)
+    return post
   }
+
+  // const featuredPost = getFeaturedPost(posts)
+  // console.log(featuredPost)
+
+  return (
+    <Layout location={location}>
+      <FeaturedPostHero
+        post={getFeaturedPost(posts)}
+        // image={featuredPost.heroImage.gatsbyImageData}
+        // title={featuredPost.title}
+        // author={featuredPost.author.name}
+        // category={featuredPost.category}
+      />
+      <h2 style={{ marginTop: '3rem' }}>Recent Posts</h2>
+      <ArticlePreview posts={posts} />
+    </Layout>
+  )
 }
 
 export default RootIndex
@@ -32,8 +41,18 @@ export const pageQuery = graphql`
       nodes {
         title
         slug
+        featuredPost
         publishDate(formatString: "MMMM Do, YYYY")
         tags
+        body {
+          childMarkdownRemark {
+            timeToRead
+          }
+        }
+        author {
+          name
+        }
+        category
         heroImage {
           gatsbyImageData(
             layout: FULL_WIDTH

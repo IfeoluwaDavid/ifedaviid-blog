@@ -4,8 +4,8 @@ import get from 'lodash/get'
 
 import Seo from '../components/seo'
 import Layout from '../components/layout'
-import Hero from '../components/hero'
 import ArticlePreview from '../components/article-preview'
+// import FeaturedPostHero from '../components/home-hero'
 
 class BlogIndex extends React.Component {
   render() {
@@ -14,7 +14,7 @@ class BlogIndex extends React.Component {
     return (
       <Layout location={this.props.location}>
         <Seo title="Blog" />
-        <Hero title="Blog" />
+        <h1>Recent Posts</h1>
         <ArticlePreview posts={posts} />
       </Layout>
     )
@@ -31,6 +31,7 @@ export const pageQuery = graphql`
         slug
         publishDate(formatString: "MMMM Do, YYYY")
         tags
+        category
         heroImage {
           gatsbyImageData(
             layout: FULL_WIDTH
