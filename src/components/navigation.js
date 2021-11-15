@@ -6,6 +6,10 @@ import ifedaviidLogo from '../images/ifedaviid-favicon.png'
 import * as styles from './navigation.module.css'
 import styled from 'styled-components'
 
+// The following import prevents a Font Awesome icon server-side rendering bug,
+// where the icons flash from a very large icon down to a properly sized one:
+import '@fortawesome/fontawesome-svg-core/styles.css'
+// Prevent fontawesome from adding its CSS since we did it manually above:
 import { config } from '@fortawesome/fontawesome-svg-core'
 config.autoAddCss = false
 
@@ -22,9 +26,7 @@ const MenuIcon = styled(FontAwesomeIcon)`
 
 const Navigation = () => (
   <nav role="navigation" className={styles.container} aria-label="Main">
-    <style src="@fortawesome/fontawesome-svg-core/styles.css">
-      <MenuIcon icon={faBars} />
-    </style>
+    <MenuIcon icon={faBars} />
     <Link to="/" className={styles.logoLink}>
       <span />
       <img className={styles.logo} alt="ifedaviid-logo" src={ifedaviidLogo} />
