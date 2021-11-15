@@ -18,7 +18,7 @@ const MenuIcon = styled(FontAwesomeIcon)`
   margin-left: 0.5rem;
   transform: scale(2);
   align-self: center;
-
+  display: none;
   @media (max-width: 768px) {
     display: flex;
   }
