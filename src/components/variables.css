@@ -66,10 +66,8 @@
   /* size */
   --size-gutter: var(--space-3xl);
   --size-logo: var(--space-3xl);
-  --size-max-width: 70rem;
-
-  --md-container-width: 60rem;
-  --xl-container-width: 70rem;
+  --size-max-width: 150rem;
+  --md-container-width: 100rem;
 }
 
 @media (min-width: 480px) {

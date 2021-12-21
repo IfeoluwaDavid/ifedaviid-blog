@@ -1,11 +1,12 @@
 .main {
   max-width: var(--size-max-width);
   margin: 0 auto;
-  padding: var(--size-gutter);
+  padding: 15rem var(--size-gutter);
 }
 
 @media (max-width: 768px) {
   .main {
-    padding: 1rem var(--size-gutter);
+    padding: calc(var(--size-gutter) - 1rem);
+    padding-top: 9rem;
   }
 }

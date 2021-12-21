@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
-
+import SocialShare from '../components/social-share'
 import Seo from '../components/seo'
 import Layout from '../components/layout'
 import BlogPostHero from '../components/blog-post-hero'
@@ -26,13 +26,14 @@ class BlogPostTemplate extends React.Component {
           <BlogPostHero
             image={post.heroImage?.gatsbyImageData}
             title={post.title}
-            content={post.description?.childMarkdownRemark?.excerpt}
+            citation={{
+              authorName: post.author?.name,
+              rawDate: post.rawDate,
+              publishDate: post.publishDate,
+              timeToRead: post.body?.childMarkdownRemark?.timeToRead,
+            }}
           />
-          {/* <span className={styles.meta}>
-            {post.author?.name} &middot;{' '}
-            <time dateTime={post.rawDate}>{post.publishDate}</time> –{' '}
-            {post.body?.childMarkdownRemark?.timeToRead} minute read
-          </span> */}
+
           <div className={styles.article}>
             <div
               className={styles.body}
@@ -40,7 +41,9 @@ class BlogPostTemplate extends React.Component {
                 __html: post.body?.childMarkdownRemark?.html,
               }}
             />
+
             <Tags tags={post.tags} />
+            <SocialShare blogPost={post} />
             {(previous || next) && (
               <nav>
                 <ul className={styles.articleNavigation}>
@@ -61,6 +64,24 @@ class BlogPostTemplate extends React.Component {
                 </ul>
               </nav>
             )}
+            <div id="ife" className={styles.author}>
+              <div
+                style={{
+                  fontWeight: 'bold',
+                  fontSize: '21px',
+                  marginBottom: '0.5rem',
+                }}
+              >
+                About {post.author.name}
+              </div>
+              <div
+                style={{
+                  fontSize: '16px',
+                }}
+              >
+                {post.author.shortBio.shortBio}
+              </div>
+            </div>
           </div>
         </div>
       </Layout>
@@ -81,6 +102,9 @@ export const pageQuery = graphql`
       title
       author {
         name
+        shortBio {
+          shortBio
+        }
       }
       publishDate(formatString: "MMMM Do, YYYY")
       rawDate: publishDate

@@ -3,11 +3,14 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 
 import * as styles from './blog-post-hero.module.css'
 
-const BlogPostHero = ({ image, title, content }) => (
+const BlogPostHero = ({ image, title, citation }) => (
   <div className={styles.hero}>
     <div className={styles.details}>
       <h1 className={styles.title}>{title}</h1>
-      {content && <p className={styles.content}>{content}</p>}
+    </div>
+    <div className={styles.meta}>
+      <time dateTime={citation.rawDate}>{citation.publishDate}</time> by{' '}
+      {citation.authorName} - {citation.timeToRead} minute read
     </div>
     {image && (
       <GatsbyImage className={styles.image} alt={title} image={image} />

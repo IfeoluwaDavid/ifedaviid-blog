@@ -24,7 +24,7 @@ const ArticlePreview = ({ posts }) => {
                 style={{
                   flexDirection: 'column',
                   background: 'white',
-                  padding: '1rem',
+                  padding: '1rem 2rem',
                   color: 'black',
                 }}
               >
@@ -32,11 +32,12 @@ const ArticlePreview = ({ posts }) => {
                   <Badge
                     bg="secondary"
                     style={{
-                      background: '#e8e8e8',
+                      background: 'grey',
                       padding: '0.3rem 0.7rem',
                       borderRadius: '0.5rem',
-                      fontSize: '0.7rem',
+                      fontSize: '1.1rem',
                       fontWeight: 'bolder',
+                      color: 'white',
                     }}
                   >
                     {post.category[0]}
@@ -57,11 +58,12 @@ const ArticlePreview = ({ posts }) => {
               <Card.Footer
                 style={{
                   background: 'grey',
-                  padding: '0.5rem 1rem',
+                  padding: '0.5rem 2rem',
                   color: 'white',
+                  fontSize: '1.3rem',
                 }}
               >
-                <small className="text-muted">Last updated 3 mins ago</small>
+                <small>Last updated 3 mins ago</small>
               </Card.Footer>
             </Card>
           )
