@@ -1,11 +1,21 @@
+.meta {
+  font-style: italic;
+  margin-bottom: 2rem;
+  letter-spacing: 0.1rem;
+  font-weight: bold;
+  color: #bbb;
+}
+
 .hero {
   /* justify-content: center;
   display: block;
   margin: 0 auto;
   max-width: var(--size-max-width);
-  min-height: 200px;
+  
   padding: 0 0 var(--size-gutter);
   position: relative; */
+  min-height: 500px;
+  margin-top: 5rem;
 }
 
 .image {
@@ -73,5 +83,15 @@
   .details {
     /* left: var(--size-gutter);
     padding: var(--space-3xl) var(--size-gutter) 0 0; */
+  }
+}
+
+@media (max-width: 768px) {
+  .meta {
+    font-size: 13px;
+    margin-bottom: 2rem;
+    letter-spacing: 0.1rem;
+    font-weight: bold;
+    color: #bbb;
   }
 }

@@ -1,12 +1,9 @@
-.meta {
-  font-size: var(--text-lg);
-  font-style: italic;
-  margin: 0 auto 1em;
-  max-width: var(--size-max-width);
-  padding-bottom: var(--size-gutter);
-  padding-left: var(--size-gutter);
-  position: relative;
-  top: -1em;
+.author {
+  display: block;
+  background-color: white;
+  color: black;
+  border-radius: 2rem;
+  padding: 2rem 3rem;
 }
 
 .article {
@@ -19,7 +16,7 @@
 }
 
 .body {
-  /* max-width: 48rem; */
+  /* max-width: 148rem; */
 }
 
 .article h2:first-of-type {
@@ -27,7 +24,6 @@
 }
 
 .article a {
-  border-bottom: 1.5px solid currentColor;
   font-weight: var(--medium);
 }
 
@@ -72,7 +68,7 @@
 .container {
   margin: 0 auto;
   max-width: var(--md-container-width);
-  padding: var(--space-2xl) var(--size-gutter);
+  padding: var(--space-xl) var(--size-gutter);
 }
 
 @media (min-width: 768px) {

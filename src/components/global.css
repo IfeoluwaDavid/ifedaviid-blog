@@ -36,11 +36,11 @@ h6 {
 
 a {
   color: currentColor;
-  text-decoration: none;
 }
 
 a:hover {
   color: var(--primary);
+  text-decoration: none;
 }
 
 a.active {
