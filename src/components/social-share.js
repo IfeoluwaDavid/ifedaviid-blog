@@ -28,7 +28,7 @@ export const SocialShare = ({ blogPost }) => {
       <div className={styles.socialButtonGroup}>
         <a
           target="_blank"
-          href={`https://www.facebook.com/sharer.php?u=${'hello facebook'}`}
+          href={`https://www.facebook.com/sharer.php?u=${window.location.href}`}
           rel="noopener noreferrer"
         >
           <StyledButton style={{ background: '#4267B2' }}>
@@ -37,9 +37,9 @@ export const SocialShare = ({ blogPost }) => {
         </a>
         <a
           target="_blank"
-          href={`https://twitter.com/share?url=${window.href}&text=Read "${
-            blogPost.title
-          }"&via=${`IfeDaviid's Blog`}`}
+          href={`https://twitter.com/share?url=${
+            window.location.href
+          }&text=Read "${blogPost.title}"&via=${`IfeDaviid's Blog`}`}
           rel="noopener noreferrer"
         >
           <StyledButton style={{ background: '#1DA1F2' }}>
@@ -49,9 +49,7 @@ export const SocialShare = ({ blogPost }) => {
         <a
           target="_blank"
           href={`
-          https://www.linkedin.com/shareArticle?url=${'hello facebook'}&title=${
-            blogPost.title
-          }
+          https://www.linkedin.com/shareArticle?url=${window.location.href}&title=${blogPost.title}
           `}
           rel="noopener noreferrer"
         >

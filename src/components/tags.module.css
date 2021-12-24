@@ -1,7 +1,6 @@
 .tags {
   display: flex;
   gap: var(--space-md);
-  margin-bottom: 3rem;
 }
 
 .tag {
