@@ -41,23 +41,39 @@ class BlogPostTemplate extends React.Component {
                 __html: post.body?.childMarkdownRemark?.html,
               }}
             />
-
+            <hr style={{ border: '1px thin #efefef', width: '100%' }} />
             <Tags tags={post.tags} />
             <SocialShare blogPost={post} />
             {(previous || next) && (
               <nav>
                 <ul className={styles.articleNavigation}>
                   {previous && (
-                    <li>
-                      <Link to={`/blog/${previous.slug}`} rel="prev">
-                        ← {previous.title}
+                    <li className={styles.blogPostBottomNavigation}>
+                      <Link
+                        to={`/blog/${previous.slug}`}
+                        rel="prev"
+                        style={{ display: 'block', textAlign: 'left' }}
+                      >
+                        <strong style={{ letterSpacing: '0.1rem' }}>
+                          ← Previous Post
+                        </strong>
+                        <br />
+                        <small>{previous.title}</small>
                       </Link>
                     </li>
                   )}
                   {next && (
-                    <li>
-                      <Link to={`/blog/${next.slug}`} rel="next">
-                        {next.title} →
+                    <li className={styles.blogPostBottomNavigation}>
+                      <Link
+                        to={`/blog/${next.slug}`}
+                        rel="next"
+                        style={{ display: 'block', textAlign: 'right' }}
+                      >
+                        <strong style={{ letterSpacing: '0.1rem' }}>
+                          Next Post →
+                        </strong>
+                        <br />
+                        <small>{next.title}</small>
                       </Link>
                     </li>
                   )}
