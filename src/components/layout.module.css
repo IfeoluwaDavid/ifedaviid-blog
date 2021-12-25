@@ -7,6 +7,6 @@
 @media (max-width: 768px) {
   .main {
     padding: calc(var(--size-gutter) - 1rem);
-    padding-top: 9rem;
+    padding-top: 40%;
   }
 }

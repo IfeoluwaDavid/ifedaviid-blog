@@ -1,8 +1,8 @@
 .author {
   display: block;
-  background-color: white;
+  background-color: #bbb;
   color: black;
-  border-radius: 2rem;
+  border-radius: 0.5rem;
   padding: 2rem 3rem;
 }
 
@@ -75,14 +75,13 @@
 
 .container {
   margin: 0 auto;
-  max-width: var(--md-container-width);
-  padding: var(--space-xl) var(--size-gutter);
+  max-width: var(--blogpost-container-width);
 }
 
 @media (min-width: 768px) {
   .container {
     /* max-width: var(--size-max-width); */
-    margin: 0 auto;
+    /* margin: 0 auto; */
   }
 }
 
@@ -101,14 +100,14 @@
 }
 
 @media (max-width: 768px) {
-  .container {
-    padding: 0;
-  }
   .articleNavigation {
     flex-direction: column;
   }
   .blogPostBottomNavigation {
     width: 100%;
     margin-bottom: 1.5rem;
+  }
+  .blogPostContainer {
+    padding: 0rem;
   }
 }

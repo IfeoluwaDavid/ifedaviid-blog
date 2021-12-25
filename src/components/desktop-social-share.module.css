@@ -1,0 +1,15 @@
+.socialShareContainer {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  bottom: 15%;
+  right: 5%;
+  border-radius: 50px;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .socialShareContainer {
+    display: none;
+  }
+}

@@ -67,7 +67,7 @@
   --size-gutter: var(--space-3xl);
   --size-logo: var(--space-3xl);
   --size-max-width: 150rem;
-  --md-container-width: 100rem;
+  --blogpost-container-width: 95rem;
 }
 
 @media (min-width: 480px) {
