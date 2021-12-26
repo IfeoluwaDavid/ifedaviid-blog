@@ -2,7 +2,6 @@ import React from 'react'
 import { Button } from 'react-bootstrap'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import useSiteMetadata from '../components/useSiteMetadata'
 import {
   faFacebook,
   faLinkedin,
@@ -15,8 +14,8 @@ const StyledButton = styled(Button)`
   width: fit-content;
 `
 
-const MobileSocialShare = ({ blogPost, location }) => {
-  const { siteUrl } = useSiteMetadata().siteMetadata
+const MobileSocialShare = ({ blogPost, pageUrl }) => {
+  console.log('pageurl ms -', pageUrl)
   return (
     <div className={styles.socialShare}>
       <p
@@ -28,17 +27,15 @@ const MobileSocialShare = ({ blogPost, location }) => {
         Share this post
       </p>
       <div className={styles.socialButtonGroup}>
-        <a
-          href={`https://www.facebook.com/sharer.php?u=${siteUrl}${location.pathname}`}
-        >
+        <a href={`https://www.facebook.com/sharer.php?u=${pageUrl}`}>
           <StyledButton style={{ background: '#4267B2' }}>
             <FontAwesomeIcon icon={faFacebook} /> Share on Facebook
           </StyledButton>
         </a>
         <a
-          href={`https://twitter.com/share?url=${siteUrl}${
-            location.pathname
-          }&text=Read "${blogPost.title}"&via=${`IfeDaviid's Blog`}`}
+          href={`https://twitter.com/share?url=${pageUrl}&text=Read "${
+            blogPost.title
+          }"&via=${`IfeDaviid's Blog`}`}
         >
           <StyledButton style={{ background: '#1DA1F2' }}>
             <FontAwesomeIcon icon={faTwitter} /> Share on Twitter
@@ -46,7 +43,7 @@ const MobileSocialShare = ({ blogPost, location }) => {
         </a>
         <a
           href={`
-          https://www.linkedin.com/shareArticle?url=${siteUrl}${location.pathname}&title=${blogPost.title}
+          https://www.linkedin.com/shareArticle?url=${pageUrl}&title=${blogPost.title}
           `}
         >
           <StyledButton style={{ background: '#0077b5' }}>
