@@ -4,124 +4,121 @@ import get from 'lodash/get'
 import { Disqus } from 'gatsby-plugin-disqus'
 
 import * as styles from './blog-post.module.css'
-import { getCurrentPageUrl } from '../utilities/helpers'
 import Seo from '../components/seo'
 import Tags from '../components/tags'
 import Layout from '../components/layout'
 import BlogPostHero from '../components/blog-post-hero'
 import MobileSocialShare from '../components/mobile-social-share'
 import DesktopSocialShare from '../components/desktop-social-share'
+import useSiteMetadata from '../components/useSiteMetadata'
 
-class BlogPostTemplate extends React.Component {
-  render() {
-    const post = get(this.props, 'data.contentfulBlogPost')
-    const previous = get(this.props, 'data.previous')
-    const next = get(this.props, 'data.next')
+const BlogPostTemplate = ({ data, location }) => {
+  const post = get(data, 'contentfulBlogPost')
+  const previous = get(data, 'previous')
+  const next = get(data, 'next')
+  const { siteUrl } = useSiteMetadata().siteMetadata
 
-    return (
-      <Layout location={this.props.location}>
-        <Seo
-          title={post.title}
-          description={post.description.childMarkdownRemark.excerpt}
-          image={`http:${post.heroImage.resize.src}`}
-        />
-        <div className={styles.container}>
-          <DesktopSocialShare blogPost={post} />
-          <div className={styles.blogPostContainer}>
-            <BlogPostHero
-              image={post.heroImage?.gatsbyImageData}
-              title={post.title}
-              citation={{
-                authorName: post.author?.name,
-                rawDate: post.rawDate,
-                publishDate: post.publishDate,
-                timeToRead: post.body?.childMarkdownRemark?.timeToRead,
+  return (
+    <Layout location={location}>
+      <Seo
+        title={post.title}
+        description={post.description.childMarkdownRemark.excerpt}
+        image={`http:${post.heroImage.resize.src}`}
+      />
+      <div className={styles.container}>
+        <DesktopSocialShare blogPost={post} />
+        <div className={styles.blogPostContainer}>
+          <BlogPostHero
+            image={post.heroImage?.gatsbyImageData}
+            title={post.title}
+            citation={{
+              authorName: post.author?.name,
+              rawDate: post.rawDate,
+              publishDate: post.publishDate,
+              timeToRead: post.body?.childMarkdownRemark?.timeToRead,
+            }}
+          />
+
+          <div className={styles.article}>
+            <div
+              className={styles.body}
+              dangerouslySetInnerHTML={{
+                __html: post.body?.childMarkdownRemark?.html,
               }}
             />
-
-            <div className={styles.article}>
+            <hr style={{ border: '1px thin #efefef', width: '100%' }} />
+            <Tags tags={post.tags} />
+            <MobileSocialShare blogPost={post} />
+            {(previous || next) && (
+              <nav>
+                <ul className={styles.articleNavigation}>
+                  {previous && (
+                    <li className={styles.blogPostBottomNavigation}>
+                      <Link
+                        to={`/blog/${previous.slug}`}
+                        rel="prev"
+                        style={{ display: 'block', textAlign: 'left' }}
+                      >
+                        <strong style={{ letterSpacing: '0.1rem' }}>
+                          ← Previous Post
+                        </strong>
+                        <br />
+                        <small>{previous.title}</small>
+                      </Link>
+                    </li>
+                  )}
+                  {next && (
+                    <li className={styles.blogPostBottomNavigation}>
+                      <Link
+                        to={`/blog/${next.slug}`}
+                        rel="next"
+                        style={{ display: 'block', textAlign: 'right' }}
+                      >
+                        <strong style={{ letterSpacing: '0.1rem' }}>
+                          Next Post →
+                        </strong>
+                        <br />
+                        <small>{next.title}</small>
+                      </Link>
+                    </li>
+                  )}
+                </ul>
+              </nav>
+            )}
+            <div id="ife" className={styles.author}>
               <div
-                className={styles.body}
-                dangerouslySetInnerHTML={{
-                  __html: post.body?.childMarkdownRemark?.html,
+                style={{
+                  fontWeight: 'bold',
+                  fontSize: '21px',
+                  marginBottom: '0.5rem',
                 }}
-              />
-              <hr style={{ border: '1px thin #efefef', width: '100%' }} />
-              <Tags tags={post.tags} />
-              <MobileSocialShare blogPost={post} />
-              {(previous || next) && (
-                <nav>
-                  <ul className={styles.articleNavigation}>
-                    {previous && (
-                      <li className={styles.blogPostBottomNavigation}>
-                        <Link
-                          to={`/blog/${previous.slug}`}
-                          rel="prev"
-                          style={{ display: 'block', textAlign: 'left' }}
-                        >
-                          <strong style={{ letterSpacing: '0.1rem' }}>
-                            ← Previous Post
-                          </strong>
-                          <br />
-                          <small>{previous.title}</small>
-                        </Link>
-                      </li>
-                    )}
-                    {next && (
-                      <li className={styles.blogPostBottomNavigation}>
-                        <Link
-                          to={`/blog/${next.slug}`}
-                          rel="next"
-                          style={{ display: 'block', textAlign: 'right' }}
-                        >
-                          <strong style={{ letterSpacing: '0.1rem' }}>
-                            Next Post →
-                          </strong>
-                          <br />
-                          <small>{next.title}</small>
-                        </Link>
-                      </li>
-                    )}
-                  </ul>
-                </nav>
-              )}
-              <div id="ife" className={styles.author}>
-                <div
-                  style={{
-                    fontWeight: 'bold',
-                    fontSize: '21px',
-                    marginBottom: '0.5rem',
-                  }}
-                >
-                  About {post.author.name}
-                </div>
-                <div
-                  style={{
-                    fontSize: '16px',
-                  }}
-                >
-                  {post.author.shortBio.shortBio}
-                </div>
+              >
+                About {post.author.name}
               </div>
-              <Disqus
-                config={{
-                  /* Replace PAGE_URL with your post's canonical URL variable */
-                  url: getCurrentPageUrl(),
-                  /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
-                  identifier: post.slug,
-                  /* Replace PAGE_TITLE with the title of the page */
-                  title: post.title,
+              <div
+                style={{
+                  fontSize: '16px',
                 }}
-              />
+              >
+                {post.author.shortBio.shortBio}
+              </div>
             </div>
+            <Disqus
+              config={{
+                /* Replace PAGE_URL with your post's canonical URL variable */
+                url: `${siteUrl}${location.pathname}`,
+                /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+                identifier: post.slug,
+                /* Replace PAGE_TITLE with the title of the page */
+                title: post.title,
+              }}
+            />
           </div>
         </div>
-      </Layout>
-    )
-  }
+      </div>
+    </Layout>
+  )
 }
-
-export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug(
@@ -169,3 +166,5 @@ export const pageQuery = graphql`
     }
   }
 `
+
+export default BlogPostTemplate

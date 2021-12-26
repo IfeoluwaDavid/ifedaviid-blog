@@ -38,6 +38,7 @@ module.exports = {
   siteMetadata: {
     title: "IfeDaviid's Blog",
     description: 'Official Contentful Gatsby Starter',
+    siteUrl: `https://blog.ifedaviid.com`,
   },
   pathPrefix: '/gatsby-contentful-starter',
   plugins: [

@@ -1,6 +1,5 @@
 import React from 'react'
 import { SocialIcon } from 'react-social-icons'
-import Container from './container'
 import * as styles from './footer.module.css'
 
 const getSocialIcon = (link) => {
