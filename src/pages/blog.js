@@ -7,18 +7,15 @@ import Layout from '../components/layout'
 import ArticlePreview from '../components/article-preview'
 // import FeaturedPostHero from '../components/home-hero'
 
-class BlogIndex extends React.Component {
-  render() {
-    const posts = get(this, 'props.data.allContentfulBlogPost.nodes')
-
-    return (
-      <Layout location={this.props.location}>
-        <Seo title="Blog" />
-        <h1>Recent Posts</h1>
-        <ArticlePreview posts={posts} />
-      </Layout>
-    )
-  }
+const BlogIndex = ({ data }) => {
+  const posts = get(data, 'allContentfulBlogPost.nodes')
+  return (
+    <Layout location={this.props.location}>
+      <Seo title="Blog" />
+      <h1>Recent Posts</h1>
+      <ArticlePreview posts={posts} />
+    </Layout>
+  )
 }
 
 export default BlogIndex
