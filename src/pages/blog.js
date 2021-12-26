@@ -7,10 +7,10 @@ import Layout from '../components/layout'
 import ArticlePreview from '../components/article-preview'
 // import FeaturedPostHero from '../components/home-hero'
 
-const BlogIndex = ({ data }) => {
+const BlogIndex = ({ data, location }) => {
   const posts = get(data, 'allContentfulBlogPost.nodes')
   return (
-    <Layout location={this.props.location}>
+    <Layout location={location}>
       <Seo title="Blog" />
       <h1>Recent Posts</h1>
       <ArticlePreview posts={posts} />
