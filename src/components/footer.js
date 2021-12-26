@@ -9,16 +9,16 @@ const getSocialIcon = (link) => {
       url={link}
       style={{
         borderBottom: 'none',
-        marginRight: '0.5rem',
-        height: '2rem',
-        width: '2rem',
+        margin: '0rem 0.3rem',
+        height: '3rem',
+        width: '3rem',
       }}
     />
   )
 }
 
 const Footer = () => (
-  <Container as="footer">
+  <footer style={{ background: 'black', padding: '2rem 0rem' }}>
     <div className={styles.container}>
       <div>
         <div className={styles.footerTag}>Powered by Gatsby & Contentful</div>
@@ -31,7 +31,7 @@ const Footer = () => (
         {getSocialIcon('mailto:ifeoluwaadese@ymail.com')}
       </div>
     </div>
-  </Container>
+  </footer>
 )
 
 export default Footer

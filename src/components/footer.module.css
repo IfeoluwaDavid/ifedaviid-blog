@@ -1,9 +1,10 @@
 .container {
-  background: black;
   border-top: 1px solid var(--border);
   font-size: var(--text-sm);
   margin-top: var(--space-2xl);
-  padding: var(--space-2xl) 2rem;
+  /* padding: var(--space-2xl) 2rem; */
+  margin: 0 auto;
+  max-width: calc(var(--size-max-width) - 5rem);
   text-align: center;
   display: flex;
   justify-content: space-between;
