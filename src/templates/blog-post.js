@@ -17,6 +17,7 @@ const BlogPostTemplate = ({ data, location }) => {
   const previous = get(data, 'previous')
   const next = get(data, 'next')
   const { siteUrl } = useSiteMetadata().siteMetadata
+  const fullUrl = `${siteUrl}${location.pathname}`
 
   return (
     <Layout location={location}>
@@ -26,7 +27,7 @@ const BlogPostTemplate = ({ data, location }) => {
         image={`http:${post.heroImage.resize.src}`}
       />
       <div className={styles.container}>
-        <DesktopSocialShare blogPost={post} />
+        <DesktopSocialShare blogPost={post} pageUrl={fullUrl} />
         <div className={styles.blogPostContainer}>
           <BlogPostHero
             image={post.heroImage?.gatsbyImageData}
@@ -48,7 +49,7 @@ const BlogPostTemplate = ({ data, location }) => {
             />
             <hr style={{ border: '1px thin #efefef', width: '100%' }} />
             <Tags tags={post.tags} />
-            <MobileSocialShare blogPost={post} />
+            <MobileSocialShare blogPost={post} pageUrl={fullUrl} />
             {(previous || next) && (
               <nav>
                 <ul className={styles.articleNavigation}>
@@ -106,7 +107,7 @@ const BlogPostTemplate = ({ data, location }) => {
             <Disqus
               config={{
                 /* Replace PAGE_URL with your post's canonical URL variable */
-                url: `${siteUrl}${location.pathname}`,
+                url: `${siteUrl}${fullUrl}`,
                 /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
                 identifier: post.slug,
                 /* Replace PAGE_TITLE with the title of the page */
