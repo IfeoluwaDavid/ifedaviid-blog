@@ -7,8 +7,6 @@ import Layout from '../components/layout'
 import ArticlePreview from '../components/article-preview'
 // import FeaturedPostHero from '../components/home-hero'
 
-import React from 'react'
-
 const BlogIndex = ({ data }) => {
   const posts = get(data, 'allContentfulBlogPost.nodes')
   return (

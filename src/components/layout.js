@@ -7,8 +7,6 @@ import Navigation from './navigation'
 import Footer from './footer'
 import * as styles from './layout.module.css'
 
-import React from 'react'
-
 export const Template = ({ children }) => {
   return (
     <div>
