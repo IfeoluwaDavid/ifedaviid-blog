@@ -1,4 +1,5 @@
 html {
+  /* height: 100%; */
   width: 100%;
   scroll-behavior: smooth;
 }
@@ -31,7 +32,7 @@ h4,
 h5,
 h6 {
   font-weight: var(--semibold);
-  line-height: var(--dense);
+  line-height: var(--default);
 }
 
 a {

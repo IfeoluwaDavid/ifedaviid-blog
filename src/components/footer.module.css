@@ -1,13 +1,19 @@
-.container {
+.footerContainer {
   border-top: 1px solid var(--border);
   font-size: var(--text-sm);
-  margin-top: var(--space-2xl);
-  /* padding: var(--space-2xl) 2rem; */
-  margin: 0 auto;
-  max-width: calc(var(--size-max-width) - 5rem);
-  text-align: center;
+  /* margin-top: var(--space-2xl); */
+  background: black;
+  padding: var(--space-2xl) 2rem;
+  width: 100%;
+  /* position: relative; */
+  bottom: 0;
+}
+
+.footerContent {
   display: flex;
   justify-content: space-between;
+  margin: 0 auto;
+  max-width: calc(var(--size-max-width) - 5rem);
 }
 
 .container a {
@@ -25,12 +31,13 @@
 }
 
 @media (max-width: 768px) {
-  .container {
+  .footerContent {
     display: block;
+    text-align: center;
   }
 
   .footerTag {
     font-size: 13px;
-    padding-bottom: 1rem;
+    padding-bottom: 2rem;
   }
 }

@@ -13,7 +13,7 @@ const FeaturedPostHero = ({ post }) => (
     />
     <div className={styles.details}>
       <p className={styles.category}>{post.category[0]}</p>
-      <h1 className={styles.title}>{post.title}</h1>
+      <strong className={styles.title}>{post.title}</strong>
       <p className={styles.dateAndTimeToRead}>- by {post.author.name}</p>
       <p className={styles.dateAndTimeToRead}>
         {post.publishDate} / {post.body?.childMarkdownRemark?.timeToRead} minute

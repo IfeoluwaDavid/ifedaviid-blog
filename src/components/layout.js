@@ -1,11 +1,11 @@
 import React from 'react'
 
-import './variables.css'
-import './global.css'
 import Seo from './seo'
 import Navigation from './navigation'
 import Footer from './footer'
 import * as styles from './layout.module.css'
+import './variables.css'
+import './global.css'
 
 export const Template = ({ children }) => {
   return (
