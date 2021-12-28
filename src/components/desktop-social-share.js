@@ -3,7 +3,6 @@ import * as styles from './desktop-social-share.module.css'
 import { FacebookIcon, TwitterIcon, LinkedinIcon } from 'react-share'
 
 const DesktopSocialShare = ({ blogPost, pageUrl }) => {
-  console.log('pageurl ds -', pageUrl)
   return (
     <div className={styles.socialShareContainer}>
       <a

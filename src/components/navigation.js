@@ -5,6 +5,8 @@ import { Twirl as Hamburger } from 'hamburger-react'
 import ifedaviidLogo from '../images/ifedaviid-favicon.png'
 import * as styles from './navigation.module.css'
 import { config } from '@fortawesome/fontawesome-svg-core'
+const navigation = require('../content/navigation-list.json')
+
 config.autoAddCss = false
 
 const NavContainer = styled.nav`
@@ -16,7 +18,7 @@ const NavContainer = styled.nav`
   z-index: 2;
 
   @media (max-width: 768px) {
-    height: ${(props) => (props.isNavOpen ? '40rem' : '9rem')};
+    height: ${(props) => (props.isNavOpen ? '23rem' : '9rem')};
     transition: height 0.08s;
     padding: 2rem 2.5rem;
   }
@@ -56,46 +58,27 @@ const Navigation = () => {
           <p className={styles.blogTitle}>IFEDAVIID</p>
         </Link>
         <ul className={styles.navigation}>
-          <li className={styles.navigationItem}>
-            <Link to="/" activeClassName="active">
-              Home
-            </Link>
-          </li>
-          <li className={styles.navigationItem}>
-            <Link to="/blog/" activeClassName="active">
-              Recent Posts
-            </Link>
-          </li>
+          {navigation.map((navItem, idx) => {
+            return (
+              <li className={styles.navigationItem}>
+                <Link to={navItem.slug} activeClassName="active">
+                  {navItem.title}
+                </Link>
+              </li>
+            )
+          })}
         </ul>
       </div>
       {isNavOpen ? (
         <div className={styles.mobileMenu}>
           <ul className={styles.mobileNav}>
-            <li className={styles.mobileNavItem}>
-              <Link to="/" activeClassName="active">
-                Front-End
-              </Link>
-            </li>
-            <li className={styles.mobileNavItem}>
-              <Link to="/blog/" activeClassName="active">
-                Back-End
-              </Link>
-            </li>
-            <li className={styles.mobileNavItem}>
-              <Link to="/blog/" activeClassName="active">
-                Databases
-              </Link>
-            </li>
-            <li className={styles.mobileNavItem}>
-              <Link to="/blog/" activeClassName="active">
-                Cloud-Computing
-              </Link>
-            </li>
-            <li className={styles.mobileNavItem}>
-              <Link to="/blog/" activeClassName="active">
-                Best Practices
-              </Link>
-            </li>
+            {navigation.map((navItem, idx) => {
+              return (
+                <li className={styles.mobileNavItem}>
+                  <Link to={navItem.slug}>{navItem.title}</Link>
+                </li>
+              )
+            })}
           </ul>
         </div>
       ) : null}
