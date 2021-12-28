@@ -12,7 +12,7 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location}>
       <Seo title="Blog" />
-      <h1>Recent Posts</h1>
+      <h2>Recent Posts</h2>
       <ArticlePreview posts={posts} />
     </Layout>
   )

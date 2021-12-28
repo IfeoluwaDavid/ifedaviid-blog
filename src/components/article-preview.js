@@ -54,17 +54,6 @@ const ArticlePreview = ({ posts }) => {
                   </Card.Text>
                 </Link>
               </Card.Body>
-
-              <Card.Footer
-                style={{
-                  background: 'grey',
-                  padding: '0.5rem 2rem',
-                  color: 'white',
-                  fontSize: '1.3rem',
-                }}
-              >
-                <small>Last updated 3 mins ago</small>
-              </Card.Footer>
             </Card>
           )
         })}

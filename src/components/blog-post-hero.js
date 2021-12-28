@@ -6,7 +6,7 @@ import * as styles from './blog-post-hero.module.css'
 const BlogPostHero = ({ image, title, citation }) => (
   <div className={styles.hero}>
     <div className={styles.details}>
-      <h1 className={styles.title}>{title}</h1>
+      <strong className={styles.title}>{title}</strong>
     </div>
     <div className={styles.meta}>
       <time dateTime={citation.rawDate}>{citation.publishDate}</time> by{' '}

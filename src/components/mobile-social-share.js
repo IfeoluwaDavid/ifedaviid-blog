@@ -27,12 +27,18 @@ const MobileSocialShare = ({ blogPost, pageUrl }) => {
         Share this post
       </p>
       <div className={styles.socialButtonGroup}>
-        <a href={`https://www.facebook.com/sharer.php?u=${pageUrl}`}>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href={`https://www.facebook.com/sharer.php?u=${pageUrl}`}
+        >
           <StyledButton style={{ background: '#4267B2' }}>
             <FontAwesomeIcon icon={faFacebook} /> Share on Facebook
           </StyledButton>
         </a>
         <a
+          target="_blank"
+          rel="noopener noreferrer"
           href={`https://twitter.com/share?url=${pageUrl}&text=Read "${
             blogPost.title
           }"&via=${`IfeDaviid's Blog`}`}
@@ -42,6 +48,8 @@ const MobileSocialShare = ({ blogPost, pageUrl }) => {
           </StyledButton>
         </a>
         <a
+          target="_blank"
+          rel="noopener noreferrer"
           href={`
           https://www.linkedin.com/shareArticle?url=${pageUrl}&title=${blogPost.title}
           `}
