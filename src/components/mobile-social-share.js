@@ -15,7 +15,6 @@ const StyledButton = styled(Button)`
 `
 
 const MobileSocialShare = ({ blogPost, pageUrl }) => {
-  console.log('pageurl ms -', pageUrl)
   return (
     <div className={styles.socialShare}>
       <p
